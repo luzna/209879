@@ -1,64 +1,24 @@
 #include "stdafx.h"
-#define _USE_MATH_DEFINES
-#include <cmath>
-#include <cstdlib> 
-
-struct location
-{
-	float x,y;
-};
-
-
-class Circle
-{
-
-private:
-	location location;
-	float radius;
-
-public:
-	void set_location(float x, float y)
-	{
-		location.x=x;
-		location.y=y;
-	}
-		
-	float get_locationx()
-	{
-		return location.x;
-	}
-
-	float get_locationy()
-	{
-		return location.y;
-	}
-
-	void set_radius(float rad)
-	{
-		radius=rad;
-	}
-
-	 float get_radius()
-	{
-		return radius;
-	}
-
-	 float circumference()
-	{
-		return 2 * M_PI * radius;
-	}
-
-	float area()
-	{
-		return M_PI * pow(radius,2);
-	}
-};
+#include "Class.h"
 
 int main()
 {
-	Circle circle;
-	circle.set_location(4., 2.);
+	Circle circle, circle_3;
+	
+	location new_location={4.,2.};
+	circle.set_location(new_location);
 	circle.set_radius(15.);
+
+	location new_location_1={3.,5.};
+	Circle circle_1(new_location_1, 2.);
+
+	location new_location_2={11.,7.};
+	Circle circle_2(new_location_2, 4.);
+	
+	circle=circle+circle_1;
+	circle_3=circle_1+circle_2;
+	circle_3=circle_3*2;
+	circle_2=circle*5;
 
 	printf("Circle location is %.1fx%.1f.\n",
 	circle.get_locationx(), circle.get_locationy());
@@ -68,16 +28,15 @@ int main()
 	circle.circumference());
 	printf("Circle area is %.2f.\n",
 	circle.area());
-    
+ 
+	Circle::counting();
 
 system("pause");
+return 0;
 }
 
-//TEST WIDOCZNOŒCI 
-//Przy odwo³ywaniu siê do zadeklarowanej wg instrukcji zmiennej z klasy Circle kompilator wyrzuca b³¹d treœci:
-//'float Circle::radius Error:member "Circle::radius" (declared at line 24) is inaccessible'
-//Wnioskujê st¹d, ¿e z poziomu funkcji main nie mamy dostêpu do wy¿ej wymienionej zmiennej.
+//Klasa Circle nie potrzebuje destruktora, poniewa¿ nie ma dzia³añ koniecznych do wykonania przed niszczeniem obiektów tej klasy.
 
-//PUBLICZNE METODY
-//Pobieramy i ustawiamy dane w klasie przy u¿yciu publicznych metod, 
-//aby móc zachowaæ sam¹ strukturê danych niedostêpn¹ dla nieuprawnionych funkcji i nie dopuœciæ do jej 'zepsucia'.
+//Zmienne i funkcje statyczne mog¹ mieæ zastosowanie, gdy obiekty danej klasy posiadaj¹ jak¹œ wspóln¹ cechê, która mo¿e ulegaæ zmianie, 
+//nie trzeba wówczas dokonywaæ poprawek w ka¿dym obiekcie po kolei. Same zmienne statyczne mog¹ równie¿ pos³u¿yæ do przechowywania 
+//bardzo d³ugich nazw klas, których obiektów jest wiele, aby nazwy te pojawia³y siê w pamiêci tylko raz. 
