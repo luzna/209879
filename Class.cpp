@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Class.h"
-#include <iostream>
+
+int Circle::counter=0;
 
 Circle::Circle()
 {
@@ -16,14 +17,17 @@ Circle::Circle(::location new_location, float new_radius)
 	this->location.x=new_location.x;
 	this->location.y=new_location.y;
 	this->radius=new_radius;
+
+	counter++;
 }
 
-Circle::~Circle(){}
+Circle::~Circle()
+{
+	counter--;
+}
 
-int Circle::counter=0;
 int Circle::counting()
 {
-	std::cout<<"existing objects: "<<counter<<"\n";
 	return counter;
 }
 
@@ -48,14 +52,9 @@ void Circle::set_location(::location location)
 	this->location=location;
 }
 		
-float Circle::get_locationx()
+::location Circle::get_location(::location location)
 {
-	return location.x;
-}
-
-float Circle::get_locationy()
-{
-	return location.y;
+	return location;
 }
 
 void Circle::set_radius(float radius)

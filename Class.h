@@ -22,8 +22,7 @@ public:
 	Circle operator+(Circle a);
 	Circle operator*(float scalar);
 	void set_location(::location location);
-	float get_locationx();
-	float get_locationy();
+	::location get_location(::location location);
 	void set_radius(float radius);
 	float get_radius();
 	float circumference();
