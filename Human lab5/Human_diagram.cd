@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Human">
+    <Position X="3.25" Y="0.5" Width="4" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAgEAAAAABAAQAAQAAAEgAAAAABMAEEAAAAACIyAAYA=</HashCode>
+      <FileName>Human.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Student">
+    <Position X="0.5" Y="3.25" Width="3.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAwAAAAAFgBAIgACAAAAAAAAAAAAACABAhIAA=</HashCode>
+      <FileName>Student.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Student2">
+    <Position X="5.25" Y="4.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAABAAAAAAAABAAMAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Student2.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tutor">
+    <Position X="7.25" Y="3.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAACACAAAACAAEAIAAEAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Tutor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
