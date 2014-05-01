@@ -14,12 +14,11 @@ Human::Human()
 	this->gender="unknown";
 	this->name="unknown";
 	this->surname="unknown";
-	this->ptr=NULL;
 
 	counter++;
 }
 
-Human::Human(int age, string gender, string name, string surname, int(*ptr)[10], int n) : ptr(ptr)
+Human::Human(int age, string gender, string name, string surname, int n)
 {
 	this->age=age;
 	this->gender=gender;
@@ -32,9 +31,9 @@ Human::Human(int age, string gender, string name, string surname, int(*ptr)[10],
 
 Human::~Human()
 {
-	delete [] favorite_books;
 	favorite_books=0;
-
+	delete [] favorite_books;
+	
 	counter--;
 }
 
@@ -96,19 +95,9 @@ string Human::get_surname()
 	return surname;
 }
 
-void Human::set_ptr(int (*ptr)[10])
-{
-	this->ptr=ptr;
-}
-
-int* Human::get_ptr()
-{
-	return *ptr;
-}
-
 void Human::birthday() 
 {
-	cout<<"birthday"<<endl;
+	cout<<get_age()+1<<" birthday coming"<<endl;
 }
 
 int Human::studying_time()

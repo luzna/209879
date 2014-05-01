@@ -3,6 +3,7 @@
 #include <string>
 #include <iostream>
 using namespace std;
+
 #ifndef __HUMAN_H_INCLUDED__
 #define __HUMAN_H_INCLUDED__
 
@@ -13,12 +14,11 @@ protected:
 	string gender;
 	string name;
 	string surname;
-	int (*ptr)[10];
 	static int counter;
 	string *favorite_books;
 public:
 	Human();
-	Human(int age, string gender, string name, string surname, int(*ptr)[10], int n);
+	Human(int age, string gender, string name, string surname, int n);
 	virtual ~Human();
 	static int counting();
 	friend ostream& operator<<(ostream& out, Human &A);
@@ -31,8 +31,6 @@ public:
 	string get_name();
 	void set_surname(string surname);
 	string get_surname();
-	void set_ptr(int (*ptr)[10]);
-	int* get_ptr();
 	void birthday();
 	virtual int studying_time();
 };

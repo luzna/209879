@@ -1,8 +1,11 @@
 #include "stdafx.h"
 #include "Human.h"
-//#include "Base.h"
+#include "Base.h"
 
-class Student : public Human//, public Base
+#ifndef __STUDENT_H_INCLUDED__
+#define __STUDENT_H_INCLUDED__
+
+class Student : public Human, public Base
 {
 protected:
 	int index;
@@ -12,7 +15,7 @@ protected:
 	string *table;
 public:
 	Student();
-	Student(int age, string gender, string name, string surname, int(*ptr)[10], int n, int index, int semester, string major, string faculty, int m);
+	Student(int age, string gender, string name, string surname, int n, int index, int semester, string major, string faculty, int m);
 	~Student();
 	int get_index();
 	void set_index(int index);
@@ -23,8 +26,7 @@ public:
 	string get_faculty();
 	void set_faculty(string faculty);
 	int studying_time();
-	/*void function1();
-	int function2();
-	bool operator==(const Base& a);*/
+	bool operator==(const Base& a);
 };
 
+#endif

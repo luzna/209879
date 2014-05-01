@@ -6,18 +6,17 @@ Student2::Student2() : Student()
 	this->degree="unknown";
 }
 
-Student2::Student2(int age, string gender, string name, string surname, int(*ptr)[10], int n, int index, int semester, string major, string faculty, int m, string degree) 
-	: Student(age, gender, name, surname, ptr, n, index, semester, major, faculty, m)
+Student2::Student2(int age, string gender, string name, string surname, int n, int index, int semester, string major, string faculty, int m, string degree) 
+	: Student(age, gender, name, surname, n, index, semester, major, faculty, m)
 {
 	this->degree=degree;
 	average = new double[semester];
-	
 }
 
 Student2::~Student2()
 {
-	delete [] average;
 	average=0;
+	delete [] average;
 }
 
 string Student2::get_degree()

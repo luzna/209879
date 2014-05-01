@@ -1,24 +1,28 @@
 #include "stdafx.h"
 #include "Student.h"
+#include "Student2.h"
 #include "Tutor.h"
 #include <iostream>
 
 int main()
 {
-	int tab[10]; int (*wsk)[10]; wsk=&tab;
-
 	Human Frank;
-	Student Jane(7, "female", "Jane", "Parker", wsk, 2, 748938, 2, "air", "W4", 5);
-	Student Becky(5, "female", "Becky", "Philips", wsk, 3, 747292, 4, "mbm" , "w10", 6);
+	Student Jane(7, "female", "Jane", "Parker", 2, 748938, 2, "air", "W4", 5);
+	Student Becky(7, "female", "Jane", "Philips", 3, 747292, 4, "mbm" , "W10", 6);
 	Tutor Simon;
-	
+	Student2 Bob(25, "male", "Bob", "Harrison", 5, 102983, 3, "inf", "W4", 2, "inz.");
+
 	cout<<Human::counting()<<endl;
 	
 	cout<<Frank;
 	cout<<Jane;
+	cout<<Becky;
 
 	Frank.birthday();
-	cout<<Jane.studying_time();
+	cout<<endl<<Jane.studying_time()<<endl;
+
+	if(Jane==Becky)
+		cout<<"operator== working properly\n\n";
 
 	system("pause");
 	return 0;

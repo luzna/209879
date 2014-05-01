@@ -9,8 +9,8 @@ Student::Student() : Human()
 	this->faculty="unknown";
 }
 
-Student::Student(int age, string gender, string name, string surname, int(*ptr)[10], int n, int index, int semester, string major, string faculty, int m) 
-	: Human(age, gender, name, surname, ptr, n)
+Student::Student(int age, string gender, string name, string surname, int n, int index, int semester, string major, string faculty, int m) 
+	: Human(age, gender, name, surname, n)
 {
 	this->index=index;
 	this->semester=semester;
@@ -22,9 +22,9 @@ Student::Student(int age, string gender, string name, string surname, int(*ptr)[
 
 Student::~Student()
 {
-	delete [] table;
 	table=0;
-
+	delete [] table;
+	
 	counter--;
 }
 
@@ -73,11 +73,8 @@ int Student::studying_time()
 	return (semester/2);
 }
 
-/*bool Student::operator==(const Base& a)
+bool Student::operator==(const Base& a)
 {
-	const Base& a= dynamic_cast<const Student& a>;
-	return ((a.age==age)&&(a.gender==gender)&&(a.name==name));
+	const Student& b = dynamic_cast <const Student&> (a);
+	return ((b.age==age)&&(b.gender==gender)&&(b.name==name));
 }
-
-void Student::function1(){};
-int Student::function2(){return 1;};*/

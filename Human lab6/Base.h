@@ -1,9 +1,12 @@
 #include "stdafx.h"
 
+#ifndef __BASE_H_INCLUDED__
+#define __BASE_H_INCLUDED__
+
 class Base
 {
 public:
-	virtual void function1() = 0;
-	virtual int function2() = 0;
 	virtual bool operator==(const Base &a) = 0;
 };
+
+#endif

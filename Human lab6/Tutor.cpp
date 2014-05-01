@@ -7,7 +7,7 @@ Tutor::Tutor() : Human()
 	this->number_of_publications=0;
 }
 
-Tutor::Tutor(int age, string gender, string name, string surname, int(*ptr)[10], int n, string title, int number_of_publications) : Human(age, gender, name, surname, ptr, n)
+Tutor::Tutor(int age, string gender, string name, string surname, int n, string title, int number_of_publications) : Human(age, gender, name, surname, n)
 {
 	this->title=title;
 	this->number_of_publications=number_of_publications;
