@@ -1,7 +1,6 @@
 #include "block.h"
 
-int Block::position_x=0;
-int Block::position_y=0;
+Block::Block(){}
 
 Block::Block(int left_field, int right_field)
 {
@@ -11,91 +10,19 @@ Block::Block(int left_field, int right_field)
 
 Block::~Block(){}
 
-void Block::NextBlock()
+void Block::DisplayBlock()							//wyœwietlanie
 {
-	position_x+=160;
-}
-
-void Block::DisplayBlock()
-{
-	BITMAP *soap = NULL;
-	soap = load_bmp( "soap.bmp", default_palette );
-	BITMAP *dot = NULL;
-	dot = load_bmp( "dot.bmp", default_palette );
-
-	blit( soap, screen, 0, 0, position_x, position_y, soap->w, soap->h );
-
-	if(left_field==1)																//kropki po lewej
-		blit( dot, screen, 0, 0, position_x+30, position_y+30, dot->w, dot->h );
-	else if(left_field==2){
-		blit( dot, screen, 0, 0, position_x+15, position_y+30, dot->w, dot->h );
-		blit( dot, screen, 0, 0, position_x+45, position_y+30, dot->w, dot->h );
-	}
-	else if(left_field==3){
-		blit( dot, screen, 0, 0, position_x+10, position_y+30, dot->w, dot->h );
-		blit( dot, screen, 0, 0, position_x+30, position_y+30, dot->w, dot->h );
-		blit( dot, screen, 0, 0, position_x+50, position_y+30, dot->w, dot->h );
-	}
-	else if(left_field==4){
-		blit( dot, screen, 0, 0, position_x+15, position_y+15, dot->w, dot->h );
-		blit( dot, screen, 0, 0, position_x+45, position_y+15, dot->w, dot->h );
-		blit( dot, screen, 0, 0, position_x+15, position_y+45, dot->w, dot->h );
-		blit( dot, screen, 0, 0, position_x+45, position_y+45, dot->w, dot->h );
-	}
-	else if(left_field==5){
-		blit( dot, screen, 0, 0, position_x+10, position_y+10, dot->w, dot->h );
-		blit( dot, screen, 0, 0, position_x+50, position_y+10, dot->w, dot->h );
-		blit( dot, screen, 0, 0, position_x+10, position_y+50, dot->w, dot->h );
-		blit( dot, screen, 0, 0, position_x+50, position_y+50, dot->w, dot->h );
-		blit( dot, screen, 0, 0, position_x+30, position_y+30, dot->w, dot->h );
-	}
-	else if(left_field==6){
-		blit( dot, screen, 0, 0, position_x+10, position_y+15, dot->w, dot->h );
-		blit( dot, screen, 0, 0, position_x+30, position_y+15, dot->w, dot->h );
-		blit( dot, screen, 0, 0, position_x+50, position_y+15, dot->w, dot->h );
-		blit( dot, screen, 0, 0, position_x+10, position_y+45, dot->w, dot->h );
-		blit( dot, screen, 0, 0, position_x+30, position_y+45, dot->w, dot->h );
-		blit( dot, screen, 0, 0, position_x+50, position_y+45, dot->w, dot->h );
-	}
+	//BITMAP * bufor = NULL;
+	//bufor = create_bitmap( 1280,800 );
+	BITMAP * blocks = NULL;
+	blocks = load_bmp( "blocks.bmp", default_palette );
 	
-	if(right_field==1)																//kropki po prawej
-		blit( dot, screen, 0, 0, position_x+30+70, position_y+30, dot->w, dot->h );
-	else if(right_field==2){
-		blit( dot, screen, 0, 0, position_x+15+70, position_y+30, dot->w, dot->h );
-		blit( dot, screen, 0, 0, position_x+45+70, position_y+30, dot->w, dot->h );
-	}
-	else if(right_field==3){
-		blit( dot, screen, 0, 0, position_x+10+70, position_y+30, dot->w, dot->h );
-		blit( dot, screen, 0, 0, position_x+30+70, position_y+30, dot->w, dot->h );
-		blit( dot, screen, 0, 0, position_x+50+70, position_y+30, dot->w, dot->h );
-	}
-	else if(right_field==4){
-		blit( dot, screen, 0, 0, position_x+15+70, position_y+15, dot->w, dot->h );
-		blit( dot, screen, 0, 0, position_x+45+70, position_y+15, dot->w, dot->h );
-		blit( dot, screen, 0, 0, position_x+15+70, position_y+45, dot->w, dot->h );
-		blit( dot, screen, 0, 0, position_x+45+70, position_y+45, dot->w, dot->h );
-	}
-	else if(right_field==5){
-		blit( dot, screen, 0, 0, position_x+10+70, position_y+10, dot->w, dot->h );
-		blit( dot, screen, 0, 0, position_x+50+70, position_y+10, dot->w, dot->h );
-		blit( dot, screen, 0, 0, position_x+10+70, position_y+50, dot->w, dot->h );
-		blit( dot, screen, 0, 0, position_x+50+70, position_y+50, dot->w, dot->h );
-		blit( dot, screen, 0, 0, position_x+30+70, position_y+30, dot->w, dot->h );
-	}
-	else if(right_field==6){
-		blit( dot, screen, 0, 0, position_x+10+70, position_y+15, dot->w, dot->h );
-		blit( dot, screen, 0, 0, position_x+30+70, position_y+15, dot->w, dot->h );
-		blit( dot, screen, 0, 0, position_x+50+70, position_y+15, dot->w, dot->h );
-		blit( dot, screen, 0, 0, position_x+10+70, position_y+45, dot->w, dot->h );
-		blit( dot, screen, 0, 0, position_x+30+70, position_y+45, dot->w, dot->h );
-		blit( dot, screen, 0, 0, position_x+50+70, position_y+45, dot->w, dot->h );
-	}
-
-	destroy_bitmap( soap );
-	destroy_bitmap( dot );
+	blit( blocks, screen, left_field*80, 0, 100, 500, 80, 80 );
+	blit( blocks, screen, right_field*80, 0, 180, 500, 80, 80 );
+	//blit( bufor, screen, 0, 0, 0, 0, 1280, 800 );
 }
 
-void Block::InvertBlock()							//obracanie klocka
+void Block::InvertBlock()							//obracanie
 {
 	int bufor=0;
 	bufor=left_field;
